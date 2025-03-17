@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -131,6 +132,8 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
+    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -196,9 +199,13 @@ public class FirstPersonController : MonoBehaviour
         }
 
         #endregion
+
+        
     }
 
     float camRotation;
+
+    
 
     private void Update()
     {
@@ -361,6 +368,12 @@ public class FirstPersonController : MonoBehaviour
         if(enableHeadBob)
         {
             HeadBob();
+        }
+
+        if (Input.GetKeyUp("escape"))
+        {
+            Debug.Log($"Quitting App on Escape Key struck.");
+            Application.Quit();
         }
     }
 
